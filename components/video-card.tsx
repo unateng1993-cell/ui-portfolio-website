@@ -36,9 +36,10 @@ export function VideoCard({ project, isHovered, onHoverChange }: VideoCardProps)
   return (
     <div
       className={cn(
-        "group relative rounded-[2rem] overflow-hidden md:cursor-none",
+        "group relative rounded-[1.75rem] md:rounded-[2rem] overflow-hidden md:cursor-none",
         "transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
-        "h-[420px] md:h-[600px] w-full",
+        "h-[460px] md:h-[600px]",
+        "w-[76vw] max-w-[300px] shrink-0 snap-center md:w-full md:max-w-none",
         isHovered ? "md:flex-[2.4] shadow-2xl shadow-black/50" : "md:flex-[0.8] md:opacity-90",
       )}
       onMouseEnter={() => onHoverChange(true)}
@@ -58,7 +59,7 @@ export function VideoCard({ project, isHovered, onHoverChange }: VideoCardProps)
           alt={project.title}
           className={cn(
             "w-full h-full object-cover transition-all duration-700",
-            !isHovered && "grayscale brightness-[0.7]",
+            !isHovered && "brightness-[0.8] md:grayscale md:brightness-[0.7]",
           )}
         />
       </div>
@@ -97,16 +98,18 @@ export function VideoCard({ project, isHovered, onHoverChange }: VideoCardProps)
       {/* Expanded content */}
       <div
         className={cn(
-          "absolute bottom-0 left-0 right-0 p-6 md:p-8",
+          "absolute bottom-0 left-0 right-0 p-5 md:p-8",
           "transition-all duration-700",
-          isHovered ? "opacity-100" : "opacity-0 md:pointer-events-none",
+          isHovered ? "opacity-100" : "opacity-100 md:opacity-0 md:pointer-events-none",
         )}
       >
         <div
           className={cn(
             "relative backdrop-blur-xl bg-black/30 rounded-2xl p-5 md:p-6 border border-white/10 shadow-2xl",
             "transition-all duration-700 ease-out",
-            isHovered ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+            isHovered
+              ? "translate-y-0 opacity-100"
+              : "translate-y-0 opacity-100 md:translate-y-6 md:opacity-0",
           )}
         >
           <div className="flex items-start justify-between gap-4">

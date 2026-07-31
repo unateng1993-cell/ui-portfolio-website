@@ -15,21 +15,29 @@ export default function Page() {
         <HeroSection />
 
         {/* Works Gallery */}
-        <section id="works" className="py-16">
-          <div className="container mx-auto px-6 mb-10">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-              <div className="space-y-3">
-                <p className="font-mono text-xs tracking-[0.35em] uppercase text-accent">精选作品</p>
-                <h2 className="text-3xl md:text-4xl font-medium leading-snug text-balance">
-                  拍摄 · 精修 · 排版 · AIGC
-                </h2>
+        <section id="works" className="relative py-16 overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/works-section-bg.png')" }}
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-background/80" />
+          <div className="relative">
+            <div className="container mx-auto px-6 mb-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div className="space-y-3">
+                  <p className="font-mono text-xs tracking-[0.35em] uppercase text-accent">精选作品</p>
+                  <h2 className="text-3xl md:text-4xl font-medium leading-snug text-balance">
+                    拍摄 · 精修 · 排版 · AIGC
+                  </h2>
+                </div>
+                <p className="text-foreground/60 text-sm max-w-sm leading-relaxed">
+                  悬停查看每个项目的视觉呈现，涵盖跨境电商全品类的商品视觉与品牌页面设计。
+                </p>
               </div>
-              <p className="text-foreground/60 text-sm max-w-sm leading-relaxed">
-                悬停查看每个项目的视觉呈现，涵盖跨境电商全品类的商品视觉与品牌页面设计。
-              </p>
             </div>
+            <WorksGallery />
           </div>
-          <WorksGallery />
         </section>
 
         <ImageGallery />
